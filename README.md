@@ -66,10 +66,11 @@ Why Early Diabetes Prediction Matters
 Diabetes is a global health crisis, impacting millions and imposing a substantial financial burden on healthcare systems. In the U.S. alone, direct medical costs and lost productivity due to diabetes are estimated at $327 billion annually. Our primary stakeholders are healthcare professionals, public health organizations, and insurance companies who seek data-driven tools to enhance preventive care and optimize resource allocation. A reliable prediction model can enable proactive screening, leading to earlier diagnosis and improved patient outcomes.
 
 ## Project Objectives
-Primary Objective:
+### Primary Objective:
 
 To build a robust machine learning model capable of accurately identifying individuals at high risk of diabetes using health indicator data, with a primary focus on maximizing the detection of actual diabetes cases (high recall) to minimize missed diagnoses (False Negatives). This model is designed to serve as a preliminary screening tool.
-Secondary Objectives:
+
+### Secondary Objectives:
 
 Address severe class imbalance within the dataset using techniques like class_weight adjustment and SMOTE.
 Benchmark and compare various classification algorithms (Logistic Regression, Random Forest, Decision Tree) to identify the most suitable model.
@@ -80,23 +81,26 @@ Communicate technical findings and actionable recommendations clearly to non-tec
 ## Dataset
 The project utilizes the CDC Diabetes Health Indicators Dataset, a publicly available resource from the Centers for Disease Control and Prevention (CDC).
 
-Source: Behavioral Risk Factor Surveillance System (BRFSS).
-Records: Initially 253,680 records.
-Features: 21 health and lifestyle indicators (e.g., BMI, HighBP, HighChol, Age, Income).
-Target Variable: Diabetes_binary (0: No Diabetes, 1: Diabetes).
-Key Challenge: The dataset exhibits a severe class imbalance, with approximately 84% of records representing 'No Diabetes' and only 15% representing 'Diabetes'. Addressing this imbalance was critical to avoid models biased towards the majority class.
+* Source: Behavioral Risk Factor Surveillance System (BRFSS).
+* Records: Initially 253,680 records.
+* Features: 21 health and lifestyle indicators (e.g., BMI, HighBP, HighChol, Age, Income).
+* Target Variable: Diabetes_binary (0: No Diabetes, 1: Diabetes).
+
+### Key Challenge: 
+The dataset exhibits a severe class imbalance, with approximately 84% of records representing 'No Diabetes' and only 15% representing 'Diabetes'. Addressing this imbalance was critical to avoid models biased towards the majority class.
 
 The project followed a structured machine learning pipeline:
 
-Data Loading & Initial Inspection: Loaded the dataset and performed initial checks.
-Data Preparation & Preprocessing:
-Duplicate Removal: Removed 24,206 duplicate rows.
-Feature-Target Separation: Defined X (features) and y (target).
-Stratified Train-Test Split: Split data into 80% training and 20% testing sets, maintaining class proportions to prevent data leakage.
-Feature Scaling: Applied StandardScaler, fitting only on the training data to ensure no data leakage.
-Addressing Class Imbalance:
-Model-level adjustment: Utilized class_weight='balanced' for some models.
-SMOTE: Applied only to the training data to synthetically balance the classes.
+* Data Loading & Initial Inspection: Loaded the dataset and performed initial checks.
+* Data Preparation & Preprocessing:
+* Duplicate Removal: Removed 24,206 duplicate rows.
+* Feature-Target Separation: Defined X (features) and y (target).
+* Stratified Train-Test Split: Split data into 80% training and 20% testing sets, maintaining class proportions to prevent data leakage.
+* Feature Scaling: Applied StandardScaler, fitting only on the training data to ensure no data leakage.
+
+### Addressing Class Imbalance:
+* Model-level adjustment: Utilized class_weight='balanced' for some models.
+* SMOTE: Applied only to the training data to synthetically balance the classes.
 
 ## Model Selection & Training:
 Evaluated Logistic Regression, Random Forest, and Decision Tree Classifiers.
