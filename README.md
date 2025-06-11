@@ -1,6 +1,6 @@
 <div align="center">
   
-Diabetes Prediction Project: A Machine Learning Approach
+# Diabetes Prediction Project: A Machine Learning Approach
 </div>
 
 ##   Requirements
